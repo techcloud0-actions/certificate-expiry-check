@@ -1,27 +1,18 @@
 name: 'Domain and SSL cert watcher'
 description: 'Watch SSL certs and registry date expiring for your domains'
-branding:
-  icon: 'alert-triangle'
-  color: 'gray-dark'
 
 inputs:
-  url:
-    description: 'Site domain to be checked (with protocol)'
+  host:
+    description: 'Host to be checked, e.g. example.com'
     required: true
 
 outputs:
-  ssl-expire-date:
-    description: 'SSL certificate expire date'
+  ssl-expiry-date:
+    description: 'SSL certificate expiry date'
 
-  ssl-expire-days-left:
-    description: 'SSL certificate expire number of days left'
-
-  paid-till-date:
-    description: 'Registry Expiry Date'
-
-  paid-till-days-left:
-    description: 'Registry Expiry number of days left'
+  ssl-expiry-days-left:
+    description: 'SSL certificate number of days left until expiry'
 
 runs:
-  using: 'node12'
+  using: 'node20'
   main: 'dist/index.js'
